@@ -9,37 +9,32 @@ The project was completed as part of **Control Systems Laboratory** at the **Uni
 ---
 
 ## System Description
+<img src="MagLev.jpeg" alt="System Description" width="50%">
+The goal is to levitate the ball at a desired height and track reference changes while respecting actuator limits.
 
 The Maglev setup consists of:
-
 * An **electromagnet** driven by coil current ( i(t) )
 * A **steel ball** with vertical position ( h(t) )
 * An **infrared position sensor** providing voltage output ( y(t) )
-
-The goal is to levitate the ball at a desired height and track reference changes while respecting actuator limits.
-
+![High Level Architecture](HighLevel_Block.PNG)
 ---
 
 ## Nonlinear Plant Model
+![Plant Model](NonLinearPlantModel.PNG)
 
 The vertical dynamics of the ball are governed by:
 
-[
-m_b \ddot{h}(t) = m_b g - \frac{\alpha i(t)^2}{h(t)^2}
-]
+$$m_b \ddot{h}(t) = m_b g - \frac{\alpha i(t)^2}{h(t)^2}$$
 
 Where:
 
-* ( m_b = 0.02 , \text{kg} )
-* ( g = 9.81 , \text{m/s}^2 )
-* ( \alpha = 2.4832 \times 10^{-5} , \text{Nm}^2/\text{A}^2 )
+* $m_b = 0.02$ **kg**
+* $g = 9.81$ **m/s²**
+* $\alpha = 2.4832 \times 10^{-5}$ **Nm²/A²**
 
-Sensor model:
-[
-y = \gamma (h - s_0), \quad \gamma = 143.48 , \text{V/m}
-]
+**Sensor model:**
 
----
+$$y = \gamma (h - s_0), \quad \gamma = 143.48 \text{ V/m}$$
 
 ## Control Objectives
 
@@ -61,55 +56,36 @@ The controller is implemented in **discrete time (Δt = 1 ms)** and consists of:
 * A **PID feedback controller** for stabilization
 * A **reference pre-compensator (2-DOF control)** for overshoot reduction
 
-![Control Architecture](ControlArchitecture.PNG)
+### Equilibrium & Linearization
+
+* **Selected equilibrium height:** $$\bar{h} = 0.009 \text{ m}$$
+* **Computed equilibrium current** ($\bar{i}$) and **sensor output** ($\bar{y}$)
+* **Linearized the nonlinear model** about $(\bar{i}, \bar{h})$
+
+**Key properties of the linearized plant $G(s)$:**
+* **Unstable pole:** $\approx 46.7 \text{ rad/s}$
+* **DC gain:** $G(0) = 1.614$
 
 ---
 
-## Equilibrium Point & Linearization
+### PID Controller Design (1-DOF)
 
-* Selected equilibrium height:
-  [
-  \bar{h} = 0.009 , \text{m}
-  ]
-* Computed equilibrium current ( \bar{i} ) and sensor output ( \bar{y} )
-* Linearized the nonlinear model about ( (\bar{i}, \bar{h}) )
+A **PID controller** was designed to stabilize the unstable plant. Gains were constrained by hardware limitations:
 
-Key properties of the linearized plant ( G(s) ):
+$$|K_p|, |K_i|, |K_d| \leq 4.5$$
 
-* **Unstable pole at ~46.7 rad/s**
-* DC gain: ( G(0) = 1.614 )
+**Design Strategy:**
+* **Dominant slow pole** to meet settling time requirements.
+* **Two faster poles** for improved transient response.
+* Studied sensitivity of response to individual gain variations.
 
 ---
 
-## PID Controller Design (1‑DOF)
-
-* Designed a **PID controller** to stabilize the unstable plant
-* Gains constrained by hardware limitations:
-
-[
-|K_p|, |K_i|, |K_d| \leq 4.5
-]
-
-### Design Strategy
-
-* One **dominant slow pole** to meet settling time requirement
-* Two **faster poles** for improved transient response
-* Studied sensitivity of response to individual gain variations
-
-Performance evaluated using:
-
-* Output response ( \delta y(t) )
-* Control effort ( \delta i(t) )
-
----
-
-## Reference Shaping (2‑DOF Control)
+### Reference Shaping (2-DOF Control)
 
 To reduce overshoot and large control transients, a **reference pre-compensator** was introduced:
 
-[
-F(s) = \frac{K_i}{K_d s^2 + K_p s + K_i}
-]
+$$F(s) = \frac{K_i}{K_d s^2 + K_p s + K_i}$$
 
 ### Purpose
 
