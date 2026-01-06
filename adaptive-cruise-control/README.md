@@ -30,7 +30,7 @@ Key components include:
 ---
 
 ## Adaptive Cruise Control Logic
-![AutoSteer](ACC.PNG)
+![AutoSteer](ACC_Logic.PNG)
 ### ACC Modes
 The system supports three operating modes:
 - **Manual Mode**: Vehicle speed controlled using a potentiometer
