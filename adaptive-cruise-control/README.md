@@ -18,7 +18,7 @@ The vehicle operates in **manual**, **speed control**, or **position control** m
 ---
 
 ## System Architecture
-![System Architecture](images/acc_architecture.png)
+![System Architecture](HighLevelDesign.PNG)
 
 Key components include:
 - Differential equation–based vehicle motion model
