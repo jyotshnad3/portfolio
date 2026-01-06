@@ -30,7 +30,7 @@ Key components include:
 ---
 
 ## Adaptive Cruise Control Logic
-
+![AutoSteer](ACC.PNG)
 ### ACC Modes
 The system supports three operating modes:
 - **Manual Mode**: Vehicle speed controlled using a potentiometer
@@ -72,7 +72,7 @@ To avoid oscillations between speed and position control:
 ## Automatic Steering Control
 
 The automatic steering controller ensures accurate lateral path tracking.
-
+![AutoSteer](AutoSteer.PNG)
 ### Inputs
 - Enable command
 - Desired lateral displacement (`n_des`)
