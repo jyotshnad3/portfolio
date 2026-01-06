@@ -12,7 +12,6 @@ umin = -5;                      % Minimum input, A
 umax = 5;                       % Maximum input, A
 
 %% Equilbrium Point
-% FILL IN YOUR WORK BELOW
 % Equilibrium height, current, and output.
 
 % Equilibrium height and current
@@ -45,7 +44,6 @@ G=gamma*H
 dcgain(G)
 
 %% PID controller design
-% FILL IN YOUR WORK BELOW
 Ts=3; 
 %Ts=3/(zeta*wn)
 zeta=1;
@@ -116,7 +114,7 @@ stepinfo(PreComp,"settlingtimeThreshold",0.05)
 
 
 %% Stability Margins
-% FILL IN YOUR WORK BELOW
+
 
 
 %% Nonlinear Simulation
