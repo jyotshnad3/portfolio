@@ -1,10 +1,6 @@
 
 # Automated Attendance System Using Machine Learning
 
-![Attendance System](https://img.shields.io/badge/Focus-Computer%20Vision-blue)
-![Python](https://img.shields.io/badge/Python-3.x-green)
-![Status](https://img.shields.io/badge/Project-Stage%20I-orange)
-
 ##  Project Overview
 Traditional attendance systems—manual calling or fingerprint scanners—are often time-consuming, prone to proxy attendance, and involve physical contact. This project proposes an **Automated Attendance System** that utilizes Deep Learning and Face Recognition to provide a contactless, secure, and efficient solution for institutional and corporate environments.
 
@@ -36,7 +32,8 @@ The "brain" of the system translates visual features into mathematical data:
 ### 4. Classification & Logging
 * **SVM (Support Vector Machine):** A trained classifier maps the 128-d vector to a specific identity in the database.
 * **Automated Database Entry:** Once recognized, the system automatically logs the name and timestamp into the attendance record.
-
+  
+![High Level FlowChart](HighLevel_Block.PNG)
 ---
 
 ## Tech Stack
