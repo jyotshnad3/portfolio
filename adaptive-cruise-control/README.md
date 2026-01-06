@@ -126,6 +126,7 @@ Each vehicle periodically transmits two CAN messages:
 
 ## Tools & Technologies
 - MATLAB & Simulink
+- Embedded C
 - NXP S32K144 MCU
 - CAN communication
 - Embedded peripherals: GPIO, ADC, FlexTimer
