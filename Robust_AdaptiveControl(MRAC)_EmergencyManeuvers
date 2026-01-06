@@ -1,0 +1,81 @@
+# Robust Adaptive Control for Vehicle Lateral Dynamics
+
+![Control Theory](https://img.shields.io/badge/Control-Adaptive%20%26%20Robust-blue)
+![MATLAB](https://img.shields.io/badge/Simulation-MATLAB%2FSimulink-red)
+![University](https://img.shields.io/badge/University-Michigan-yellow)
+
+## 📌 Project Overview
+Ensuring vehicle stability during emergency maneuvers (such as sudden collision avoidance) is a critical challenge for Advanced Driver Assistance Systems (ADAS). Traditional controllers often struggle with parameter uncertainties like sudden changes in road friction or tire cornering stiffness.
+
+This project implements a **Model Reference Adaptive Control (MRAC)** framework to maintain precise lateral tracking and stability. The system "learns" and compensates for vehicle parameter variations in real-time, preventing divergence during aggressive maneuvers.
+
+---
+
+## 🚗 System Modeling: The Bicycle Model
+The vehicle's lateral and yaw dynamics are captured using a **2-DOF Linearized Bicycle Model**. 
+
+
+
+### State-Space Representation
+The plant is defined by the state vector $x = [y, \dot{y}, \psi, \dot{\psi}]^T$ (lateral position, lateral velocity, yaw angle, and yaw rate):
+
+$$\dot{x} = Ax + Bu$$
+$$y = Cx$$
+
+The transfer function $G(s)$ relates the steering input $\delta$ to the lateral output $y$. In this study, the cornering stiffness coefficients ($C_{\alpha f}$, $C_{\alpha r}$) are treated as unknown, time-varying parameters to test the controller's robustness.
+
+---
+
+## 🧠 Control Architecture: MRAC Design
+The controller is designed to force the plant to follow a stable **Reference Model** $W_m(s)$.
+
+
+
+### 1. Reference Model
+We define the desired closed-loop behavior using a second-order response:
+$$W_m(s) = \frac{c_0^*}{s^2 + d_1^* s + d_0^*} = \frac{9}{s^2 + 6s + 9}$$
+
+### 2. Adaptive Law (Gradient Method)
+To handle the plant's relative degree $n^* = 2$, we utilize a gradient-based update law with **normalization** to ensure the signals remain bounded even during rapid transients:
+
+$$\dot{\theta} = -\Gamma \frac{\epsilon \phi}{m^2}$$
+
+* **$\theta$:** Adaptive parameter vector (estimates for $k_p, \theta_1, \theta_2, \theta_3$).
+* **$\Gamma$:** Adaptation gain matrix (tuned to 20 for rapid convergence).
+* **$\epsilon$:** Augmented error signal.
+* **$m^2$:** Normalization factor ($1 + \phi^T \phi$) to ensure stability.
+
+---
+
+## 📊 Performance & Simulation Results
+The system was evaluated using a **Double Lane Change (DLC)** maneuver at high longitudinal velocities ($U = 20 \text{ m/s}$ to $30 \text{ m/s}$).
+
+### Parameter Sensitivity Test
+At $t = 8s$, the front and rear cornering stiffness was abruptly reduced by **50%** to simulate a transition from dry asphalt to an icy/wet surface.
+
+
+
+### Comparison: Fixed vs. Adaptive Control
+| Feature | Fixed MRC Controller | Proposed MRAC Controller |
+| :--- | :--- | :--- |
+| **Tracking Accuracy** | Diverges after parameter change | Re-converges within < 2s |
+| **Stability** | Unstable under friction loss | Asymptotically Stable |
+| **Max Tracking Error** | $> 1.5\text{ m}$ | $< 0.15\text{ m}$ |
+| **Robustness** | Low | High |
+
+---
+
+## 📂 Repository Structure
+* `/models`: Simulink (`.slx`) files for the bicycle model and MRAC controller.
+* `/scripts`: MATLAB (`.m`) files for parameter initialization and plotting.
+* `/docs`: Detailed project report containing Diophantine equation derivations.
+* `/results`: Scope captures and trajectory comparison plots.
+
+---
+
+## 👥 Contributors
+* **Yufei Xi** (University of Michigan)
+* **Jyotshna Dammu** (University of Michigan)
+* **Course:** NAVARCH 583 - Robust Adaptive Control.
+
+***
