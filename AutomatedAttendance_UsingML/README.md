@@ -33,7 +33,7 @@ The "brain" of the system translates visual features into mathematical data:
 * **SVM (Support Vector Machine):** A trained classifier maps the 128-d vector to a specific identity in the database.
 * **Automated Database Entry:** Once recognized, the system automatically logs the name and timestamp into the attendance record.
   
-![High Level FlowChart](HighLevel_Block.PNG)
+![High Level FlowChart](Flow.PNG)
 ---
 
 ## Tech Stack
