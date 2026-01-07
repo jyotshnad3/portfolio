@@ -2,7 +2,7 @@
 # Automated Attendance System Using Machine Learning
 
 ##  Project Overview
-Traditional attendance systems—manual calling or fingerprint scanners—are often time-consuming, prone to proxy attendance, and involve physical contact. This project proposes an **Automated Attendance System** that utilizes Deep Learning and Face Recognition to provide a contactless, secure, and efficient solution for institutional and corporate environments.
+Traditional attendance systems manual calling or fingerprint scanners are often time-consuming, prone to proxy attendance and involve physical contact. This project proposes an **Automated Attendance System** that utilizes Deep Learning and Face Recognition to provide a contactless, secure, and efficient solution for institutional and corporate environments.
 
 ### Key Objectives:
 * **Eliminate Manual Error:** Reduce the risk of "proxy" attendance.
