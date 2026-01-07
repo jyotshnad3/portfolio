@@ -11,7 +11,7 @@ Each project highlights my skills in modeling, simulation, algorithm design, and
 - **Highlights:**
   - Implemented lane-keeping and speed adaptation in real-time.
   - Integrated haptic feedback to improve driver experience.  
-👉 [View Full Project on GitHub](#)
+ [View Full Project on GitHub](https://github.com/jyotshnad3/portfolio/blob/ff9981970f7900fcbd7c790721314db2cd5ddd40/adaptive-cruise-control/README.md)
 
 ---
 
@@ -21,7 +21,7 @@ Each project highlights my skills in modeling, simulation, algorithm design, and
 - **Highlights:**
   - Achieved stable levitation with minimal overshoot.
   - Implemented real-time simulations for controller validation.  
-👉 [View Full Project on GitHub](#)
+[View Full Project on GitHub](https://github.com/jyotshnad3/portfolio/blob/ff9981970f7900fcbd7c790721314db2cd5ddd40/Magnetic_Levitation_Control/README.md)
 
 ---
 
@@ -31,7 +31,7 @@ Each project highlights my skills in modeling, simulation, algorithm design, and
 - **Highlights:**
   - Tuned controller for robustness against disturbances and uncertainties.
   - Simulated lateral dynamics for multiple driving scenarios.  
-👉 [View Full Project on GitHub](#)
+[View Full Project on GitHub](https://github.com/jyotshnad3/portfolio/blob/ff9981970f7900fcbd7c790721314db2cd5ddd40/Robust_AdaptiveControl_EmergencyManeuvers/README.md)
 
 ---
 
@@ -41,14 +41,14 @@ Each project highlights my skills in modeling, simulation, algorithm design, and
 - **Highlights:**
   - Achieved 95%+ accuracy in real-time attendance tracking.
   - Designed scalable solution for institutional and corporate use.  
-👉 [View Full Project on GitHub](#)
+[View Full Project on GitHub](https://github.com/jyotshnad3/portfolio/blob/ff9981970f7900fcbd7c790721314db2cd5ddd40/AutomatedAttendance_UsingML/README.md)
 
 ---
 
 ## Skills
-MATLAB, Simulink, Stateflow, Python, C++, Deep Learning, HIL/SIL/MIL Testing, Control System Design, Vehicle Dynamics
+MATLAB, Simulink, Stateflow, Python, C++, Machine Learning, HIL/SIL/MIL Testing, Control System Design, Vehicle Dynamics
 
 ---
-
-## Contact / Portfolio
-More projects and portfolio details: [Your Portfolio URL]
+[Portfolio](https://sites.google.com/view/jyotshna-dammu/home)  
+jyotshna@umich.edu  
++1 9473624542
